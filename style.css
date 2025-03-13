@@ -1,0 +1,265 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap');
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    margin: 0;
+    height: 100vh;
+    /* 自訂的淺色背景 */
+    background: #f1f5f2;
+    color: #000;
+}
+
+[data-bs-theme="dark"] body {
+    background-color: #000;
+    color: #fff;
+}
+
+/* 側邊欄中的 logo 樣式 */
+.sidebar .logo {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* logo 圖標的樣式 */
+.sidebar .logo i {
+    font-size: 30px;
+    color: #B2C2B2;
+    height: 50px;
+    min-width: 78px;
+    text-align: center;
+    line-height: 50px;
+}
+
+/* logo 名稱的樣式 */
+.sidebar .logo .logo_name {
+    font-size: 25px;
+    width: 100%;
+    background: linear-gradient(to right, #B2C2B2, #536B5B);
+    /* 漸層顏色 */
+    background-clip: text;
+    /* 使背景顏色剪裁到文字 */
+    -webkit-text-fill-color: transparent;
+    /* 使文字顏色透明 */
+    font-weight: 900;
+    transition: 0.3s ease;
+    transition-delay: 0.1s;
+}
+
+/* 側邊欄收合時 logo 名稱的樣式 */
+.sidebar.close .logo .logo_name {
+    transition-delay: 0s;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* 側邊欄中的導航連結容器樣式 */
+.sidebar .nav-links {
+    height: 100%;
+    padding: 30px 0 150px 0;
+    overflow: auto;
+}
+
+/* 側邊欄收合時導航連結容器的樣式 */
+.sidebar.close .nav-links {
+    overflow: visible;
+}
+
+/* 隱藏側邊欄的滾動條 */
+.sidebar .nav-links::-webkit-scrollbar {
+    display: none;
+}
+
+/* 導航連結項目的基本樣式 */
+.sidebar .nav-links li {
+    position: relative;
+    list-style: none;
+    transition: all 0.4s ease;
+    white-space: nowrap;
+    border-radius: 0 30px 30px 0;
+}
+
+/* 當鼠標懸停在導航連結項目上時的背景顏色 dark green */
+.sidebar .nav-links li:hover {
+    background: #536B5B;
+}
+
+/* 導航連結的圖標和連結名稱容器樣式 */
+.sidebar .nav-links li .iocn-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* 側邊欄收合時導航連結的顯示樣式 */
+.sidebar.close .nav-links li .iocn-link {
+    display: block;
+}
+
+/* 導航連結中的圖標樣式 light green */
+.sidebar .nav-links li i {
+    height: 50px;
+    min-width: 78px;
+    text-align: center;
+    line-height: 50px;
+    color: #99aea0;
+    /* b29cb6 */
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* 當鼠標懸停在導航連結項目上時，變更圖標的顏色 */
+.sidebar .nav-links li:hover i {
+    color: #fff;
+}
+
+.sidebar .nav-links i.arrow {
+    color: #929292;
+}
+
+/* 當導航連結顯示子菜單時，箭頭圖標的旋轉效果 */
+.sidebar .nav-links li.showMenu i.arrow {
+    transform: rotate(-180deg);
+}
+
+/* 側邊欄收合時隱藏箭頭圖標 */
+.sidebar.close .nav-links i.arrow {
+    display: none;
+}
+
+/* 導航連結中的鏈接樣式 */
+.sidebar .nav-links li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+/* 導航連結中的名稱樣式 light green */
+.sidebar .nav-links li a .link_name {
+    font-size: 18px;
+    color: #99aea0;
+    transition: all 0.4s ease;
+}
+
+/* 當鼠標懸停在導航連結項目上時，變更文字的顏色 */
+.sidebar .nav-links li:hover .link_name {
+    color: #fff;
+}
+
+
+/* 側邊欄收合時導航連結名稱的樣式 */
+.sidebar.close .nav-links li a .link_name {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* 子菜單的基本樣式 dark green */
+.sidebar .nav-links li .sub-menu {
+    padding: 6px 6px 14px 80px;
+    margin-top: -10px;
+    background: #536B5B;
+    display: none;
+    position: relative;
+}
+
+/* 當導航連結顯示子菜單時的樣式 */
+.sidebar .nav-links li.showMenu .sub-menu {
+    display: block;
+}
+
+/* 子菜單中的鏈接樣式 */
+.sidebar .nav-links li .sub-menu a {
+    color: #e8f4ec;
+    font-size: 15px;
+    padding: 5px 0;
+    white-space: nowrap;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+/* 子菜單鏈接的懸停效果 */
+.sidebar .nav-links li .sub-menu a:hover {
+    opacity: 1;
+}
+
+/* 側邊欄收合時子菜單的樣式 */
+.sidebar.close .nav-links li .sub-menu {
+    position: absolute;
+    left: 100%;
+    top: -10px;
+    margin-top: 0;
+    padding: 10px 20px;
+    border-radius: 0 6px 6px 0;
+    opacity: 0;
+    display: block;
+    pointer-events: none;
+    transition: 0s;
+}
+
+/* 側邊欄收合時，鼠標懸停在子菜單上的效果 */
+.sidebar.close .nav-links li:hover .sub-menu {
+    top: 0;
+    opacity: 1;
+    pointer-events: auto;
+    transition: all 0.4s ease;
+}
+
+/* 隱藏子菜單中的鏈接名稱 */
+.sidebar .nav-links li .sub-menu .link_name {
+    display: none;
+}
+
+/* 在側邊欄關閉狀態下顯示鏈接名稱 */
+.sidebar.close .nav-links li .sub-menu .link_name {
+    font-size: 18px;
+    opacity: 1;
+    display: block;
+}
+
+/* 設定子菜單的空白狀態 */
+.sidebar .nav-links li .sub-menu.blank {
+    opacity: 1;
+    pointer-events: auto;
+    padding: 3px 20px 6px 16px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* 設定側邊欄的基本樣式 */
+.sidebar {
+    position: fixed;
+    top: 0;
+    transition: all 0.5s ease;
+    width: 250px;
+    height: 100%;
+}
+
+/* 側邊欄在收合狀態的樣式 */
+.sidebar.close {
+    width: 78px;
+}
+
+/* 主內容區域的基本樣式 */
+.main {
+    position: relative;
+    transition: all 0.5s ease;
+    margin-left: 250px;
+    height: auto;
+}
+
+/* 側邊欄收合時，主內容區的樣式 */
+.sidebar.close~.main {
+    margin-left: 78px;
+}
+
+
+@media (max-width: 991.98px) {
+
+    /* 當螢幕寬度小於 lg (992px) 時，重置主內容區域的邊距 */
+    .main {
+        margin-left: 0 !important;
+    }
+}
